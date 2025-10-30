@@ -18,12 +18,13 @@ const Card: React.FC<PropertyProps> = ({
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 max-w-sm mx-auto">
       <div className="relative">
-        <img 
-          src={image || '/placeholder-image.jpg'} 
-          alt={name || 'Property image'} 
+        <img
+          src={image || '/assets/hero_image.png'}
+          alt={name || 'Property image'}
           className="w-full h-48 object-cover"
           onError={(e) => {
-            (e.target as HTMLImageElement).src = '/placeholder-image.jpg';
+            // If the provided image fails to load, fall back to a bundled asset at project root
+            (e.target as HTMLImageElement).src = '/file.svg';
           }}
         />
         {discount && (
